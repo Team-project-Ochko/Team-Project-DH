@@ -1,3 +1,5 @@
 export default function Home() {
-  return <div>TEAMS </div>;
+  return <div>
+    <div><button>Button</button></div>
+  </div>;
 }
