@@ -1,3 +1,3 @@
 export default function Home() {
-  return <div>team proect. oon onn. </div>;
+  return <div>team </div>;
 }
