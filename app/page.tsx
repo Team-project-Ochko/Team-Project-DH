@@ -1,3 +1,3 @@
 export default function Home() {
-  return <div>team </div>;
+  return <div>TEAMS </div>;
 }
