@@ -38,7 +38,7 @@ export const CarouselMy = ({ halls }: { halls: HallType[] }) => {
   const plugin = React.useRef(Autoplay({ delay: 2000 }));
 
   return (
-    <div className="relative w-screen h-screen">
+    <div className="relative w-full h-[calc(100vh-5rem)]">
       <Carousel
         setApi={setApi}
         plugins={[plugin.current]}
@@ -52,18 +52,17 @@ export const CarouselMy = ({ halls }: { halls: HallType[] }) => {
         <CarouselPrevious className="lg:left-10 left-6 sm:flex items-center justify-center hidden" />
         <CarouselNext className="lg:right-10 right-6 sm:flex items-center justify-center hidden" />
       </Carousel>
-      <div className="relative justify-center flex sm:mt-[-50px] mt-[-305px] m-auto">
-        <div className="flex gap-2 justify-center m-auto ">
+      <div className="absolute bottom-6 left-0 right-0 flex justify-center z-30">
+        <div className="flex gap-2 justify-center">
           {Array.from({ length: count }).map((_, index) => (
-            <div
-              onClick={() => {
-                api?.scrollTo(index);
-              }}
+            <button
+              onClick={() => api?.scrollTo(index)}
               key={index}
-              className={`rounded-full sm:size-3 size-2 ${
+              aria-label={`Go to slide ${index + 1}`}
+              className={`rounded-full h-3 w-3 sm:h-4 sm:w-4 ${
                 index + 1 === current ? "bg-white" : "bg-[#FFFFFFCC]"
               }`}
-            ></div>
+            />
           ))}
         </div>
       </div>
@@ -74,11 +73,11 @@ export const CarouselMy = ({ halls }: { halls: HallType[] }) => {
 const CarouselCard = ({ el }: { el: HallType }) => {
   return (
     <CarouselItem className="shadow-none w-full h-full p-0">
-      <div className="w-screen h-screen">
+      <div className="w-full h-full">
         <Card
-          className={`rounded-none h-screen w-screen p-0 border-0 shadow-none items-center flex`}
+          className={`rounded-none h-full w-full p-0 border-0 shadow-none items-center flex`}
         >
-          <CardContent className="flex relative  items-center justify-center p-0   w-full h-screen sm:mt-0 mt-4">
+          <CardContent className="flex relative items-center justify-center p-0 w-full h-full">
             <Image
               className="object-cover h-full w-full"
               src={el.backdrop_path}
@@ -89,11 +88,11 @@ const CarouselCard = ({ el }: { el: HallType }) => {
               style={{ objectFit: "cover" }}
             />
 
-            <div className="absolute text-white lg:left-[12%] left-[10%] lg:mt-[-10%] mt-[-5%]  sm:block hidden">
+            <div className="absolute text-white lg:left-[12%] left-[10%] top-1/4 sm:block hidden">
               <p className="text-white lg:text-[16px] text-[14px] mb-0 font-medium">
                 Now Playing:
               </p>
-              <h1 className="lg:text-[50px] font-extrabold text-[30px] mt-[-2.5]">
+              <h1 className="lg:text-[50px] font-extrabold text-[30px]">
                 {el.title}
               </h1>
               <div className="flex items-center text-[18px]">
@@ -126,7 +125,7 @@ const CarouselCard = ({ el }: { el: HallType }) => {
       <div className="sm:hidden flex">
         <CardContent
           key={el.id}
-          className="items-center justify-center p-0   h-100%  w-full h-full sm:mt-0  sm:hidden ml-5 mr-5 z-10 mt-5"
+          className="items-center justify-center p-0 w-full h-full sm:mt-0 sm:hidden ml-5 mr-5 z-10 mt-5"
         >
           <div className="text-accent-foreground flex justify-between mt-0">
             <div className="">
@@ -139,7 +138,7 @@ const CarouselCard = ({ el }: { el: HallType }) => {
             </div>
             <div className="flex items-center text-[18px]">
               <svg
-                className="mr-[0.5]"
+                className="mr-1"
                 xmlns="http://www.w3.org/2000/svg"
                 width="26"
                 height="25"
@@ -158,9 +157,7 @@ const CarouselCard = ({ el }: { el: HallType }) => {
               <p className="text-muted-foreground">/10</p>
             </div>
           </div>
-          <p className="w-fit mt-[5]  overflow-hidden text-clip... h-30">
-            {el.overview}
-          </p>
+          <p className="w-fit mt-2 overflow-hidden text-clip">{el.overview}</p>
         </CardContent>
       </div>
     </CarouselItem>

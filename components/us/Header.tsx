@@ -29,7 +29,7 @@ export const Header = () => {
         </div>
       </div>
       <div className="flex mr-10 items-center justify-between w-full lg:w-auto   gap-3">
-        <div className=" items-center flex ml-14 lg:ml-0">
+        <div className=" items-center flex ml-10 lg:ml-0">
           <Search className="mr-[-36] w-5 z-10 text-neutral-500" />
           <Input
             placeholder="Search..."
