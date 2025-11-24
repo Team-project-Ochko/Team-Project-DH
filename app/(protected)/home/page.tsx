@@ -3,6 +3,7 @@
 import { CarouselMy } from "@/components/us/CarouselMy";
 import EventHalls from "@/components/us/Nasocomponent";
 import FilterSidebar from "@/components/us/Nemelt";
+import Link from "next/link";
 
 interface Hall {
   id: number;
@@ -62,6 +63,21 @@ export default function Page() {
     <div className="bg-black min-h-screen">
       <CarouselMy halls={halls} />
       <EventHalls/>
+       <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="text-center space-y-8">
+        <h1 className="text-white text-5xl md:text-7xl font-bold">
+          Event Halls
+        </h1>
+        <p className="text-gray-400 text-xl">
+          Find the perfect venue for your special event
+        </p>
+        <Link href="/event-halls-listing">
+          <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-colors shadow-lg hover:shadow-xl">
+            Browse Event Halls
+          </button>
+        </Link>
+      </div>
+    </div>
       
     </div>
   );
