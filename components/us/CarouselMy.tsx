@@ -38,7 +38,7 @@ export const CarouselMy = ({ halls }: { halls: HallType[] }) => {
   const plugin = React.useRef(Autoplay({ delay: 2000 }));
 
   return (
-    <div className="relative w-full h-[calc(100vh-5rem)]">
+    <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[calc(100vh-5rem)]">
       <Carousel
         setApi={setApi}
         plugins={[plugin.current]}
@@ -88,16 +88,16 @@ const CarouselCard = ({ el }: { el: HallType }) => {
               style={{ objectFit: "cover" }}
             />
 
-            <div className="absolute text-white lg:left-[12%] left-[10%] top-1/4 sm:block hidden">
-              <p className="text-white lg:text-[16px] text-[14px] mb-0 font-medium">
+            <div className="absolute text-white lg:left-[12%] left-[6%] top-1/4 hidden sm:block">
+              <p className="text-white lg:text-base text-sm mb-0 font-medium">
                 Now Playing:
               </p>
-              <h1 className="lg:text-[50px] font-extrabold text-[30px]">
+              <h1 className="lg:text-[50px] font-extrabold text-2xl sm:text-3xl">
                 {el.title}
               </h1>
-              <div className="flex items-center text-[18px]">
+              <div className="flex items-center text-base">
                 <svg
-                  className="mr-[0.5]"
+                  className="mr-1"
                   xmlns="http://www.w3.org/2000/svg"
                   width="26"
                   height="25"
@@ -115,7 +115,7 @@ const CarouselCard = ({ el }: { el: HallType }) => {
                 <p className="ml-1">{el.vote_average}</p>
                 <p className="text-muted-foreground">/10</p>
               </div>
-              <p className="lg:w-[500px] w-[400px] lg:text-[20px] text-[16px] lg:mt-5 mt-[13px]">
+              <p className="lg:w-[500px] w-[320px] lg:text-lg text-base lg:mt-5 mt-3">
                 {el.overview}
               </p>
             </div>
