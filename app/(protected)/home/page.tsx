@@ -1,6 +1,8 @@
 "use client";
 
+import { Footer } from "@/components/us/Footer";
 import { CarouselMy } from "@/components/us/CarouselMy";
+import { Hero } from "@/components/us/Hero";
 
 interface Hall {
   id: number;
@@ -57,8 +59,10 @@ export default function Page() {
   ];
 
   return (
-    <div className="bg-black">
+    <>
       <CarouselMy halls={halls} />
-    </div>
+      <Hero />
+      <Footer />
+    </>
   );
 }
