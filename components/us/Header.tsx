@@ -11,57 +11,55 @@ import {
 
 export const Header = () => {
   return (
-    <div className="text-white w-full h-20 flex items-center justify-between px-4">
-      <div className="flex items-center">
-        <div className="mr-4 lg:mr-8">
-          <Logo />
-        </div>
-        {/* Desktop nav */}
-        <nav className="hidden lg:flex font-bold items-center gap-4">
-          <ButtonOfNav text={"Home"} />
-          <ButtonOfNav text={"Event Halls"} />
-          <ButtonOfNav text={"Performers"} />
-          <ButtonOfNav text={"Hosts"} />
-          <ButtonOfNav text={"Dashboard"} />
-          <ButtonOfNav text={"Contact"} />
-        </nav>
+    <div className="text-white w-full h-20 flex items-center justify-between">
+      <div className="hidden lg:flex">
+        <Logo />
       </div>
 
-      <div className="flex items-center gap-3">
-        {/* Search - show on md+ */}
-        <div className="hidden md:flex items-center">
-          <Search className="mr-2 w-5 text-neutral-500" />
+      <div className="hidden font-bold w-200 justify-between lg:flex items-center">
+        <div className="ml-5">
+          <ButtonOfNav text={"Home"} />
+        </div>
+        <ButtonOfNav text={"Event Halls"} />
+        <ButtonOfNav text={"Performers"} />
+        <ButtonOfNav text={"Hosts"} />
+        <ButtonOfNav text={"Dashboard"} />
+        <div className="mr-5">
+          <ButtonOfNav text={"Contact"} />
+        </div>
+      </div>
+      <div className="flex mr-10 items-center justify-between w-full lg:w-auto gap-3">
+        <div className="items-center flex ml-14 lg:ml-0">
+          <Search className="mr-[-36] w-5 z-10 text-neutral-500" />
           <Input
             placeholder="Search..."
-            className="pl-3 h-9 rounded-[20px] bg-neutral-800 border-none"
+            className="pl-10 h-10 rounded-[20] bg-neutral-800 border-none"
           />
         </div>
-
-        {/* Auth actions */}
-        <div className="hidden sm:flex gap-2 items-center">
-          <button className="bg-black rounded-md h-9 px-3 text-sm">
+        <div className="flex gap-2">
+          <button className="hidden md:block bg-black rounded-md h-10 w-20">
             LogIn
           </button>
-          <button className="bg-blue-600 rounded-md px-3 h-9 text-sm">
+          <button className="hidden md:block bg-blue-600 rounded-md w-20 h-10">
             SignUp
           </button>
-        </div>
-
-        {/* Mobile menu */}
-        <div className="flex items-center sm:hidden">
-          <Popover>
-            <PopoverTrigger asChild>
-              <button className="bg-blue-600 h-9 px-3 rounded-md">Menu</button>
-            </PopoverTrigger>
-            <PopoverContent className="flex flex-col gap-3 w-56 mt-4 bg-black text-white">
-              <ButtonOfNav text={"Home"} />
-              <ButtonOfNav text={"Event Halls"} />
-              <ButtonOfNav text={"Performers"} />
-              <ButtonOfNav text={"Hosts"} />
-              <ButtonOfNav text={"Dashboard"} />
-              <ButtonOfNav text={"Contact"} />
-            </PopoverContent>
-          </Popover>
+          <div className="flex md:hidden">
+            <Popover>
+              <PopoverTrigger asChild>
+                <button className="bg-blue-600 h-10 w-20 rounded-md">
+                  Menu
+                </button>
+              </PopoverTrigger>
+              <PopoverContent className="flex gap-3 w-full mt-4 bg-black text-white">
+                <ButtonOfNav text={"Home"} />
+                <ButtonOfNav text={"Event Halls"} />
+                <ButtonOfNav text={"Performers"} />
+                <ButtonOfNav text={"Hosts"} />
+                <ButtonOfNav text={"Dashboard"} />
+                <ButtonOfNav text={"Contact"} />
+              </PopoverContent>
+            </Popover>
+          </div>
         </div>
       </div>
     </div>
