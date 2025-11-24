@@ -1,6 +1,8 @@
 "use client";
 
 import { CarouselMy } from "@/components/us/CarouselMy";
+import EventHalls from "@/components/us/Nasocomponent";
+import FilterSidebar from "@/components/us/Nemelt";
 
 interface Hall {
   id: number;
@@ -59,6 +61,8 @@ export default function Page() {
   return (
     <div className="bg-black min-h-screen">
       <CarouselMy halls={halls} />
+      <EventHalls/>
+      
     </div>
   );
 }
